@@ -1,0 +1,27 @@
+sections:
+  example:
+    label: Examples
+    children:
+      subsection:
+        label: Sub Section
+        children:
+          section_level3:
+            label: Section Level 3
+        content:
+          - example_value_with_default
+    content:
+      - example_required_v
+
+  example_docs:
+    label: Example Addon
+    parent: agio_core.help
+    content:
+      - type: Parameter
+        name: example_with_custom_label
+        label: "Custom label for parameter"
+        hint: "New hint instead default"
+        widget: BoolWidget
+
+  extra_docs:
+    label: Extra
+    parent: agio_example.section_level3

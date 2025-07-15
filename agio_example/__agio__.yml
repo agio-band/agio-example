@@ -1,0 +1,59 @@
+name: agio_example
+label: agio Example
+icon: example/agio-example.png
+version: 0.0.1
+description: "Example Package"
+
+tags:
+  - example
+
+repository_api: gitea
+
+urls:
+  source_url: "http://localhost:3000/admin/agio-example.git"
+  home_page: ""
+  documentation: "https://doki.agio.service/pipeline/packages/agio-example"
+  bug_tracker: "http://localhost:3000/admin/agio-example/issues"
+
+plugins:
+  - name: example_command1
+    label: Example Command 1
+    description: "A very simple command plugin example"
+    implementations:
+      - module: plugins/commands/example_cmd.py
+
+  - name: example_thread_service
+    label: Example Thread Service
+    implementations:
+      - module: plugins/services/example_thread_service.py
+
+#  - name: example_export_plugin
+#    label: Example Export Plugin
+#    description: "Example Export Plugin"
+#    icon: agio-example.png
+#    implementations:
+#      - apps: maya
+#        module: plugins/maya/example_import.py
+#      - apps: houdini
+#        module: plugins/houdini/example_import.py
+
+#  # in different file
+#  - name: example_export_plugin   # same name
+#    implementations:
+#      - apps: nuke
+#        module: plugins/nuke/example_import.py
+#      - apps: houdini
+#        override_exists: false
+#        module: plugins/houdini/example_import.py
+
+
+settings:
+  workspace:
+    layout: package_settings/workspace_layout.yml
+    model: package_settings.workspace_settings.ExampleSettings
+  local:
+    model: package_settings.local_settings.ExampleSettings
+
+
+callbacks:
+  - callbacks/example1.py
