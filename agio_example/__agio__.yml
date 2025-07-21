@@ -2,18 +2,19 @@ name: agio_example
 label: agio Example
 icon: example/agio-example.png
 version: 0.0.1
-description: "Example Package"
+description: | 
+  Collection of examples
 
 tags:
   - example
 
-repository_api: gitea
+repository_api: github
 
 urls:
-  source_url: "http://localhost:3000/admin/agio-example.git"
+  source_url: "https://github.com/paulwinex/agio-example"
   home_page: ""
-  documentation: "https://doki.agio.service/pipeline/packages/agio-example"
-  bug_tracker: "http://localhost:3000/admin/agio-example/issues"
+  documentation: "https://github.com/paulwinex/agio-example"
+  bug_tracker: "https://github.com/paulwinex/agio-example/issues"
 
 plugins:
   - name: example_command1
