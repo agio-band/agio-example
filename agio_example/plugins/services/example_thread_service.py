@@ -1,7 +1,7 @@
 import logging
 import time
 
-from agio.core.plugins.base.service_base import ThreadServicePlugin, make_action
+from agio.core.plugins.base_service import ThreadServicePlugin, make_action
 
 logger = logging.getLogger(__name__)
 

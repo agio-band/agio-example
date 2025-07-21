@@ -2,7 +2,7 @@ import click
 from pathlib import Path
 
 from agio.core.events import emit
-from agio.core.plugins.base.command_base import ACommandPlugin
+from agio.core.plugins.base_command import ACommandPlugin
 
 
 class SimpleCommand(ACommandPlugin):
