@@ -11,10 +11,10 @@ tags:
 repository_api: github
 
 urls:
-  source_url: "https://github.com/paulwinex/agio-example"
+  source_url: "https://github.com/agio-band/agio-example.git"
   home_page: ""
-  documentation: "https://github.com/paulwinex/agio-example"
-  bug_tracker: "https://github.com/paulwinex/agio-example/issues"
+  documentation: "https://github.com/agio-band/agio-example.git"
+  bug_tracker: "https://github.com/agio-band/agio-example/issues"
 
 plugins:
   - name: example_command1
