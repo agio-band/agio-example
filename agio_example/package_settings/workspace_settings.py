@@ -1,6 +1,7 @@
-from pydantic import BaseModel
-from agio.core.settings import APackageSettings
-from agio.core.settings.fields import UrlField, StringField, ListField, IntField, RGBColorField
+from pydantic import BaseModel, Field
+
+from agio.core.settings import APackageSettings, PluginSelectField, DictField
+from agio.core.settings.fields import UrlField, StringField, ListField, IntField, RGBColorField, BoolField
 from agio.core.settings.validators import RangeLimitValidator
 
 
@@ -9,37 +10,58 @@ class SoftwareModel(BaseModel):
     version: str
 
 
+class Template(BaseModel):
+    name: str
+    value: str = Field(..., widget='TemplatePath', max_length=10)
 
-class ExampleSettings(APackageSettings):
+
+class ExampleSettings(APackageSettings, label='Example Settings'):
+    # bool
+    enabled: bool = BoolField(label='Enabled Example')
     # simple int value
+    number_value: int
+    float_number_value: float
     max_count: int = IntField(
-        label='Max Count',
+        label='Items Max Count',
         description='Max count of some items',
         default=-1,
     )
     # simple string value
-    default_name: str = StringField(
-        label='Default Name',
-    )
+    object_name: str = StringField(label='Super Object Name')
     # special string field
     base_url: str = UrlField(
         label='Base URL',
         description='Base URL parameter description example',
+        hint='Example URL hint',
     )
     # list of values
-    excluded_ids: list[int] = ListField(validators=[RangeLimitValidator(le=5)])
-    # list of pydantic models (dicts)
-    software_list: list[SoftwareModel] = ListField(
-        label='Software List',
-        description='Software List',
-        default=list,
-    )
-    # special list field
+    excluded_ids: list[int] = ListField(validators=[RangeLimitValidator(ge=0)])
+    # compound field
     rgb_channels = RGBColorField(
         label='RGB Channels',
         description='RGB Channels',
     )
     # next two fields have different definitions but will be identical
-    list_names_1 = ListField(label='List Names 1', default=list, field=StringField)
+    list_names_1: list[StringField] = ListField(label='List Names One', default=list)
     list_names_2: list[str] = None
 
+    # list of pydantic models (dicts)
+    software_list: list[SoftwareModel] = ListField(
+        label='Software List',
+        description='Software List',
+        # default=list,
+    )
+    templates1: list[Template]
+    templates2: list[Template] = ListField(
+        label='Template List',
+        description='Publish Template List',
+        default=[],
+    )
+    template: Template
+    command_select: str = PluginSelectField('command', label='Select Command Plugin', default='none')
+    # # data fields
+    constants: dict
+    value_map: dict[str, int]
+
+    # TODO
+    # env_vars: list[list] = TableField(label='Env Variables', column_labels=('Name', 'Value'))

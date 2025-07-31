@@ -40,13 +40,13 @@ sections:
             name: software_list
           - type: Parameter
             name: rgb_channels
-            help_url: 'docs/agio-example/index.html#colorfield'
 
       - type: GroupBox
         label: All Parameters In Class
         content:
           - type: ParameterClass
-            name: ExampleSettings
+            name: example_settings
+            class: agio_example.package_settings.workspace_settings.ExampleSettings
             exclude:
               - list_names_1
               - list_names_2
