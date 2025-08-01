@@ -5,11 +5,6 @@ from agio.core.settings.fields import UrlField, StringField, ListField, IntField
 from agio.core.settings.validators import RangeLimitValidator
 
 
-class SoftwareModel(BaseModel):
-    name: str
-    version: str
-
-
 class Template(BaseModel):
     name: str
     value: str = Field(..., widget='TemplatePath', max_length=10)
@@ -28,36 +23,31 @@ class ExampleSettings(APackageSettings, label='Example Settings'):
     )
     # simple string value
     object_name: str = StringField(label='Super Object Name')
+
     # special string field
     base_url: str = UrlField(
         label='Base URL',
         description='Base URL parameter description example',
         hint='Example URL hint',
     )
-    # list of values
-    excluded_ids: list[int] = ListField(validators=[RangeLimitValidator(ge=0)])
     # compound field
     rgb_channels = RGBColorField(
         label='RGB Channels',
         description='RGB Channels',
     )
+
+    # list of values
+    excluded_ids: list[int] = ListField(validators=[RangeLimitValidator(ge=0)])
     # next two fields have different definitions but will be identical
     list_names_1: list[StringField] = ListField(label='List Names One', default=list)
     list_names_2: list[str] = None
 
-    # list of pydantic models (dicts)
-    software_list: list[SoftwareModel] = ListField(
-        label='Software List',
-        description='Software List',
-        # default=list,
-    )
-    templates1: list[Template]
-    templates2: list[Template] = ListField(
+    # pydantic models (dict)
+    template: Template
+    templates: list[Template] = ListField(
         label='Template List',
         description='Publish Template List',
-        default=[],
     )
-    template: Template
     command_select: str = PluginSelectField('command', label='Select Command Plugin', default='none')
     # # data fields
     constants: dict

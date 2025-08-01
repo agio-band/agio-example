@@ -13,9 +13,19 @@ sections:
         name: examples_simple_parameters
         content:
           - type: Parameter
+            name: enabled
+          - type: Parameter
             name: max_count
           - type: Parameter
-            name: default_name
+            name: float_number_value
+          - type: Parameter
+            name: object_name
+
+      - type: GroupBox
+        label: List Fields
+        content:
+          - type: Parameter
+            name: excluded_ids
           - type: Text
             text: 'Next two fields have different definitions but will be identical'
           - type: Parameter
@@ -24,22 +34,36 @@ sections:
             name: list_names_2
 
       - type: GroupBox
+        label: Model Fields
+        content:
+          - type: Text
+            text: 'Single Model Field'
+          - type: Parameter
+            name: template
+          - type: Text
+            text: 'List of models'
+          - type: Parameter
+            name: templates
+
+      - type: GroupBox
         label: Special Fields
         content:
           - type: Parameter
             name: base_url
           - type: Parameter
             name: rgb_channels
+          - type: Text
+            text: 'List of any plugin types'
+          - type: Parameter
+            name: command_select
 
       - type: GroupBox
-        label: List Fields
+        label: Data Fields
         content:
           - type: Parameter
-            name: excluded_ids
+            name: constants
           - type: Parameter
-            name: software_list
-          - type: Parameter
-            name: rgb_channels
+            name: value_map
 
       - type: GroupBox
         label: All Parameters In Class
@@ -50,7 +74,6 @@ sections:
             exclude:
               - list_names_1
               - list_names_2
-
 
   example_docs:
     label: Example Addon

@@ -51,7 +51,8 @@ plugins:
 settings:
   workspace:
     layout: package_settings/workspace_layout.yml
-    model: package_settings.workspace_settings.ExampleSettings
+#    model: package_settings.workspace_settings.ExampleSettings
+    model: package_settings.tst.TstSettings
   local:
     model: package_settings.local_settings.ExampleSettings
 
