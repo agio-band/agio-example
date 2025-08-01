@@ -83,4 +83,4 @@ sections:
         label: Example Addon Docs
         content:
           - type: MarkdownText  # will be compiled to html for HTMLWidget
-            file: 'resources/docs/settings-field.md'
+            local_file: 'resources/docs/settings-field.md'
