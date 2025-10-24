@@ -23,6 +23,12 @@ plugins:
     implementations:
       - module: plugins/commands/example_cmd.py
 
+  - name: example_sub_command
+    label: Example SubCommands
+    description: "Simple sub command plugin example"
+    implementations:
+      - module: plugins/commands/subcommand_cmd.py
+
   - name: example_thread_service
     label: Example Thread Service
     implementations:
