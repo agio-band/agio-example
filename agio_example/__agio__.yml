@@ -64,3 +64,8 @@ settings:
 
 callbacks:
   - callbacks/example1.py
+
+
+package_callbacks:
+  - callbacks/package_callbacks.py  # default name
+

@@ -8,6 +8,7 @@ from agio.core.plugins.base_command import ACommandPlugin
 class SimpleCommand(ACommandPlugin):
     name = 'example_cmd'
     command_name = 'example'
+    help = 'Example command'
     arguments = [
         # use click "argument" and "option" functions to set up command arguments
         click.option("-a", "--arg-a", is_flag=True, help='Bool flag'),

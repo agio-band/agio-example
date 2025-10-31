@@ -23,7 +23,7 @@ class ExampleSubCommand(ACommandPlugin):
         SubCommand1,
         SubCommand2,
     ]
-    help = 'Example sub command'
+    help = 'Example sub commands'
     allow_empty_root_command = True
 
     def execute(self, **kwargs):
